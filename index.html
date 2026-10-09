@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- Diz ao navegador que este arquivo é HTML5 -->
+<html lang="pt-BR">
+<head>
+  <!-- Permite acentos (ç, ã, é...) -->
+  <meta charset="UTF-8">
+  <!-- Faz o site se ajustar ao tamanho da tela do celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título que aparece na aba do navegador -->
+  <title>Meu Lembrete de Tarefas</title>
+
+  <!-- Liga o arquivo de CSS (aparência). O caminho precisa estar certo! -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="cabecalho">
+    <h1>✓ Meu Lembrete de Tarefas</h1>
+    <!-- O JavaScript escreve a data de hoje aqui dentro (veja o id="dataHoje") -->
+    <p id="dataHoje"></p>
+  </header>
+
+  <!-- Container que centraliza e limita a largura do conteúdo -->
+  <main class="conteudo">
+
+    <!-- ================= CALENDÁRIO ================= -->
+    <section class="caixa">
+      <h2>Calendário</h2>
+
+      <!-- Botões para trocar de mês + nome do mês no meio -->
+      <div class="barra-mes">
+        <button id="btnMesAnterior">‹ Anterior</button>
+        <strong id="tituloMes"></strong>
+        <button id="btnProximoMes">Próximo ›</button>
+      </div>
+
+      <!-- Nomes dos dias da semana (fixos, escritos à mão) -->
+      <div class="grade dias-semana">
+        <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+      </div>
+
+      <!-- Os dias do mês são criados pelo JavaScript dentro desta div -->
+      <div class="grade" id="gradeCalendario"></div>
+    </section>
+
+    <!-- ================= TAREFAS DO DIA ================= -->
+    <section class="caixa">
+      <!-- O JavaScript troca este título para a data escolhida -->
+      <h2 id="tituloDia">Tarefas do dia</h2>
+
+      <!-- Formulário para adicionar OU editar uma tarefa -->
+      <form id="formTarefa">
+        <!-- Campo escondido: guarda o id da tarefa quando estamos editando -->
+        <input type="hidden" id="campoId">
+
+        <label>Título:
+          <input type="text" id="campoTitulo" placeholder="Ex.: Estudar JavaScript" required>
+        </label>
+
+        <!-- Escolha do emoji: os botões são criados pelo JavaScript (lista EMOJIS) -->
+        <label>Emoji da atividade:</label>
+        <div id="seletorEmoji"></div>
+        <label>Ou digite/cole outro emoji:
+          <!-- Este campo guarda o emoji escolhido (os botões também preenchem ele) -->
+          <input type="text" id="campoEmoji" maxlength="8" value="📝">
+        </label>
+
+        <label>Descrição (opcional):
+          <textarea id="campoDescricao" rows="2"></textarea>
+        </label>
+
+        <label>Data:
+          <input type="date" id="campoData" required>
+        </label>
+
+        <label>Horário (opcional):
+          <input type="time" id="campoHorario">
+        </label>
+
+        <label>Prioridade:
+          <select id="campoPrioridade">
+            <option value="normal">Normal</option>
+            <option value="alta">Alta</option>
+            <option value="baixa">Baixa</option>
+          </select>
+        </label>
+
+        <button type="submit" id="btnSalvar">Salvar tarefa</button>
+        <!-- "hidden" esconde o botão; o JS mostra só quando estiver editando -->
+        <button type="button" id="btnCancelar" hidden>Cancelar edição</button>
+      </form>
+
+      <!-- Lista das tarefas do dia (preenchida pelo JavaScript) -->
+      <ul id="listaTarefas"></ul>
+      <!-- Mensagem quando não há tarefas -->
+      <p id="msgVazio">Nenhuma tarefa neste dia.</p>
+    </section>
+
+    <!-- ================= RESUMO ================= -->
+    <section class="caixa">
+      <h2>Resumo</h2>
+      <p>Total de tarefas: <strong id="totalTarefas">0</strong></p>
+      <p>Concluídas: <strong id="totalConcluidas">0</strong></p>
+      <p>Pendentes: <strong id="totalPendentes">0</strong></p>
+    </section>
+
+    <!-- ================= SEMANA ================= -->
+    <section class="caixa">
+      <h2>Planejador semanal</h2>
+      <p class="dica-semana">✏️ Dica: você pode editar tudo direto aqui — emoji, título, horário, prioridade e até mudar a tarefa de dia. As alterações salvam sozinhas.</p>
+
+      <div class="barra-mes">
+        <button id="btnSemanaAnterior">‹ Semana anterior</button>
+        <strong id="tituloSemana"></strong>
+        <button id="btnProximaSemana">Próxima semana ›</button>
+      </div>
+
+      <!-- Escolha da cor do site -->
+      <label>Cor do site:
+        <select id="campoCor">
+          <option value="roxo">Roxo</option>
+          <option value="azul">Azul</option>
+          <option value="verde">Verde</option>
+          <option value="rosa">Rosa</option>
+        </select>
+      </label>
+
+      <!-- Os 7 dias da semana são criados pelo JavaScript aqui -->
+      <div class="semana" id="gradeSemana"></div>
+    </section>
+
+  </main>
+
+  <!-- O script vai NO FINAL do body: assim o HTML já existe quando o JS roda -->
+  <script src="js/script.js"></script>
+</body>
+</html>
