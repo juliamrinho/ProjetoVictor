@@ -1,6 +1,7 @@
 const formTarefa = document.getElementById('formTarefa');
 const campoId = document.getElementById('campoId');
 const campoTitulo = document.getElementById('campoTitulo');
+const campoEmoji = document.getElementById('campoEmoji'); 
 const campoDescricao = document.getElementById('campoDescricao');
 const campoData = document.getElementById('campoData');
 const campoHorario = document.getElementById('campoHorario');
@@ -18,7 +19,6 @@ const totalPendentes = document.getElementById('totalPendentes');
 const dataHoje = document.getElementById('dataHoje');
 
 let tarefas = [];
-
 
 if (dataHoje) {
   const hoje = new Date();
@@ -55,8 +55,9 @@ function renderizar() {
     }
 
     const info = document.createElement('div');
+    // Exibe o emoji ao lado do título da tarefa
     info.innerHTML = `
-      <strong>${tarefa.titulo}</strong> 
+      <strong>${tarefa.emoji ? tarefa.emoji + ' ' : ''}${tarefa.titulo}</strong> 
       <small>(${tarefa.data} ${tarefa.horario ? 'às ' + tarefa.horario : ''}) - Prioridade: ${tarefa.prioridade}</small>
       ${tarefa.descricao ? `<p>\${tarefa.descricao}</p>` : ''}
     `;
@@ -86,10 +87,11 @@ function renderizar() {
 
 if (formTarefa) {
   formTarefa.addEventListener('submit', function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const novaTarefa = {
       titulo: campoTitulo.value.trim(),
+      emoji: campoEmoji ? campoEmoji.value.trim() : '📝',
       descricao: campoDescricao ? campoDescricao.value.trim() : '',
       data: campoData.value,
       horario: campoHorario ? campoHorario.value : '',
@@ -99,6 +101,9 @@ if (formTarefa) {
 
     tarefas.push(novaTarefa);
     formTarefa.reset();
+    
+    if (campoEmoji) campoEmoji.value = '📝';
+
     renderizar();
   });
 }
