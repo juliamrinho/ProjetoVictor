@@ -1,0 +1,454 @@
+/* =====================================================
+   1. VARIÁVEIS E TEMAS
+   ===================================================== */
+:root {
+  --cor-principal: #a5189a;
+  --cor-clara: #f3dcf1;
+  --cor-fundo: #faf5fa;
+  --cor-texto: #1f2937;
+  --cor-suave: #6b7280;
+  --cor-borda: #e5e7eb;
+  --branco: #ffffff;
+
+  --raio: 16px;          /* caixas */
+  --raio-pequeno: 10px;  /* botões, campos, itens */
+  --sombra: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --sombra-forte: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --rapido: 0.2s ease;
+}
+
+body.tema-roxo  { --cor-principal: #a5189a; --cor-clara: #f3dcf1; --cor-fundo: #faf5fa; }
+body.tema-azul  { --cor-principal: #0d33b3; --cor-clara: #dbeafe; --cor-fundo: #f1f6ff; }
+body.tema-verde { --cor-principal: #006633; --cor-clara: #d1fae5; --cor-fundo: #f0fbf5; }
+body.tema-rosa  { --cor-principal: #ff2c97; --cor-clara: #fce7f3; --cor-fundo: #fff5fa; }
+
+/* =====================================================
+   2. BASE
+   ===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  transition: background 0.3s ease;
+}
+
+/* =====================================================
+   3. CABEÇALHO
+   ===================================================== */
+.cabecalho {
+  background: var(--cor-principal);
+  color: var(--branco);
+  text-align: center;
+  padding: 28px 16px;
+  transition: background 0.3s ease;
+}
+
+.cabecalho h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.cabecalho p {
+  margin: 6px 0 0;
+  opacity: 0.85;
+  text-transform: capitalize;
+}
+
+/* =====================================================
+   4. ESTRUTURA E CAIXAS
+   ===================================================== */
+.conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.caixa {
+  background: var(--branco);
+  border-radius: var(--raio);
+  border-top: 4px solid var(--cor-principal);
+  box-shadow: var(--sombra);
+  padding: 22px;
+  transition: transform var(--rapido), box-shadow var(--rapido), border-color 0.3s ease;
+}
+
+.caixa:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-forte);
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cor-principal);
+  transition: color 0.3s ease;
+}
+
+/* =====================================================
+   5. CALENDÁRIO (primeira caixa, centralizada)
+   ===================================================== */
+.conteudo > .caixa:first-child {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.barra-mes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.barra-mes strong {
+  color: var(--cor-principal);
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.dias-semana {
+  margin-bottom: 8px;
+}
+
+.dias-semana span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cor-suave);
+}
+
+/* Dias do mês. Os nomes .dia, .hoje, .selecionado, .outro-mes e
+   .tem-tarefa são sugestões: use os mesmos nomes no seu JS. */
+#gradeCalendario > * {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background: transparent;
+  color: var(--cor-texto);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--rapido), transform var(--rapido), color var(--rapido);
+}
+
+#gradeCalendario > *:hover {
+  background: var(--cor-clara);
+  color: var(--cor-principal);
+  transform: scale(1.12);
+}
+
+#gradeCalendario .hoje {
+  background: var(--cor-clara);
+  color: var(--cor-principal);
+  font-weight: 700;
+}
+
+#gradeCalendario .selecionado {
+  background: var(--cor-principal);
+  color: var(--branco);
+  font-weight: 700;
+}
+
+#gradeCalendario .outro-mes {
+  opacity: 0.35;
+}
+
+#gradeCalendario .tem-tarefa {
+  box-shadow: inset 0 -3px 0 var(--cor-principal);
+}
+
+/* =====================================================
+   6. FORMULÁRIO
+   ===================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--cor-suave);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--cor-texto);
+  background: var(--branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  transition: border-color var(--rapido), box-shadow var(--rapido);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: var(--cor-principal);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 0 3px var(--cor-clara);
+}
+
+/* Seletor de emojis */
+#seletorEmoji {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#seletorEmoji button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  font-size: 1.3rem;
+  background: var(--cor-fundo);
+  color: inherit;
+  border: 1px solid transparent;
+}
+
+#seletorEmoji button:hover {
+  background: var(--cor-clara);
+  border-color: var(--cor-principal);
+  transform: scale(1.15);
+  filter: none;
+}
+
+/* =====================================================
+   7. BOTÕES
+   ===================================================== */
+button {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 9px 16px;
+  border: none;
+  border-radius: var(--raio-pequeno);
+  background: var(--cor-principal);
+  color: var(--branco);
+  cursor: pointer;
+  transition: transform var(--rapido), filter var(--rapido), box-shadow var(--rapido), background 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.04);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible,
+#gradeCalendario > *:focus-visible {
+  outline: 3px solid var(--cor-clara);
+  outline-offset: 2px;
+}
+
+/* Botão secundário (cancelar) */
+#btnCancelar {
+  background: var(--cor-clara);
+  color: var(--cor-principal);
+}
+
+/* =====================================================
+   8. LISTA DE TAREFAS
+   ===================================================== */
+#listaTarefas {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-tarefa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--cor-fundo);
+  border-left: 4px solid var(--cor-principal);
+  border-radius: var(--raio-pequeno);
+  transition: transform var(--rapido), box-shadow var(--rapido), background var(--rapido);
+}
+
+.item-tarefa:hover {
+  transform: translateX(4px) scale(1.01);
+  background: var(--cor-clara);
+  box-shadow: var(--sombra);
+}
+
+.item-tarefa small {
+  display: block;
+  color: var(--cor-suave);
+}
+
+.item-tarefa p {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+
+.item-tarefa > div:last-child {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.item-tarefa button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.item-tarefa.concluida {
+  opacity: 0.55;
+}
+
+.item-tarefa.concluida strong {
+  text-decoration: line-through;
+}
+
+/* Prioridade: cores fixas, pois têm significado próprio */
+.item-tarefa.prioridade-alta  { border-left-color: #dc2626; }
+.item-tarefa.prioridade-baixa { border-left-color: #9ca3af; }
+
+#msgVazio {
+  margin: 18px 0 0;
+  text-align: center;
+  color: var(--cor-suave);
+}
+
+/* =====================================================
+   9. RESUMO
+   ===================================================== */
+.caixa p {
+  margin: 6px 0;
+}
+
+.caixa p strong {
+  color: var(--cor-principal);
+  font-size: 1.1rem;
+}
+
+/* =====================================================
+   10. PLANEJADOR SEMANAL
+   ===================================================== */
+.dica-semana {
+  padding: 10px 14px;
+  background: var(--cor-clara);
+  border-radius: var(--raio-pequeno);
+  font-size: 0.85rem;
+  color: var(--cor-texto);
+}
+
+#campoCor {
+  max-width: 200px;
+  margin-bottom: 16px;
+}
+
+.semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+/* Cada dia da semana (use a classe .dia-semana-card no JS, ou
+   troque por outro nome). Os filhos diretos também são pegos. */
+.semana > * {
+  padding: 10px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  transition: transform var(--rapido), border-color var(--rapido), box-shadow var(--rapido);
+}
+
+.semana > *:hover {
+  transform: translateY(-3px);
+  border-color: var(--cor-principal);
+  box-shadow: var(--sombra);
+}
+
+/* =====================================================
+   11. CELULAR
+   ===================================================== */
+@media (max-width: 900px) {
+  .semana {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .conteudo {
+    padding: 16px 12px 32px;
+  }
+
+  .caixa {
+    padding: 16px;
+  }
+
+  .semana {
+    grid-template-columns: 1fr;
+  }
+
+  .item-tarefa {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .barra-mes button {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
