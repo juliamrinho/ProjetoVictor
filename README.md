@@ -20,3 +20,13 @@ O Visual Studio Code foi escolhido como a IDE usada para a criação do programa
 **Quais alternativas poderiam ter sido utilizadas?**
 
 Outra opção de IDE seria o WebStorm, que possui como benefício uma extensa lista de ferramentas para facilitar o desenvolvimento de aplicações web, mas não foi escolhido para a criação do projeto por se tratar de um software pago. Ele seria uma boa escolha caso a equipe tivesse a intenção de tornar o site em um projeto comercial.
+
+**Quais dificuldades apareceram durante o desenvolvimento e como essas dificuldades foram resolvidas?**
+
+Ao longo do desenvolvimento do projeto, nossa equipe teve que enfrentar diversos desafios até a sua conclusão.
+
+Durante a construção do código em JavaScript, houve dificuldade na criação do planejador semanal e na formação da funcionalidade de marcar as atividades para dias específicos, além dos bugs que iam aparecendo. Para resolver esses problemas, foram utilizadas ferramentas de pesquisa para buscar entender o motivo dos erros e como resolve-los.
+
+Outro caso foi durante o desenvolvimento do código CSS, especificamente na elaboração da parte que oferece ao usuário a opção de mudar a cor tema do site. Assim como o que ocorreu no desenvolvimento em JavaScript, esse obstáculo foi resolvido atravéz de intensivas pesquisas.
+
+Por fim, tivemos dificuldade na junção das partes do código feitas por cada um, o que foi resolvido a partir da prática e do apoio entre os membros do grupo.
