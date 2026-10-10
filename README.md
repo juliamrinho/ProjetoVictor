@@ -1,18 +1,6 @@
 **Integrantes**
 
-Kauan Gustavo,
-
-Helena Gondim,
-
-Thiago Rafael,
-
-Julia Marinho,
-
-Maria Sabrina,
-
-Adriel Ruan,
-
-Evelyn Q
+Kauan Gustavo, Helena Gondim, Thiago Rafael, Julia Marinho, Maria Sabrina, Adriel Ruan, Evelyn Q
 
 **Descrição do projeto**
 
