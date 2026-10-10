@@ -61,8 +61,6 @@ Durante a construção do código em JavaScript, houve dificuldade na criação 
 
 Outro caso foi durante o desenvolvimento do código CSS, especificamente na elaboração da parte que oferece ao usuário a opção de mudar a cor tema do site. Assim como o que ocorreu no desenvolvimento em JavaScript, esse obstáculo foi resolvido atravéz de intensivas pesquisas.
 
-Outro caso foi durante o desenvolvimento do código CSS, especificamente na elaboração da parte que oferece ao usuário a opção de mudar a cor tema do site. Assim como o que ocorreu no desenvolvimento em JavaScript, esse obstáculo foi resolvido atravéz de intensivas pesquisas.
-
 Por fim, tivemos dificuldade na junção das partes do código feitas por cada um, o que foi resolvido a partir da prática e do apoio entre os membros do grupo.
 
 **O que pode ser melhorado em uma próxima versão?**
