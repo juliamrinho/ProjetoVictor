@@ -1,3 +1,33 @@
+**Integrantes**
+Kauan Gustavo
+Helena Gondim
+Thiago Rafael
+Julia Marinho
+Maria Sabrina
+Adriel Ruan
+Evelyn Q
+
+**Descrição do projeto**
+O TaskFlow é um site desenvolvido para facilitar a organização de tarefas do dia a dia das pessoas.
+O objetivo do projeto é permitir que os usuários cadastrem, visualizem, concluam e removam tarefas de maneira simples e organizada.
+
+A aplicação foi desenvolvida utilizando HTML, CSS e JavaScript, utilizando o conhecimento dos integrantes do grupo de acordo com as aulas de Front-end Frameworks do professor Victor.
+
+**Problema identificado**
+Muitas pessoas têm dificuldade para organizar suas atividades diárias e acompanhar quais tarefas já foram realizadas e quais ainda precisam ser concluídas.
+O nosso projeto busca solucionar esse problema por meio de uma interface simples que permite organizar as tarefas em um único lugar.
+
+**Usuários da aplicação**
+A aplicação é destinada a pessoas que desejam organizar suas atividades diárias, estudantes que precisam acompanhar suas tarefas escolares e pequenas equipes que necessitam de uma forma simples de visualizar suas atividades.
+
+**Funcionalidades**
+Cadastrar novas tarefas
+Visualizar as tarefas cadastradas
+Marcar tarefas como concluídas
+Remover tarefas da lista
+Atualizar a interface de acordo com as ações realizadas pelo usuário
+
+
 **Como a aplicação foi estruturada?**
 
 Para simplificar a organização do projeto, dividimos o site em partes menores: o cabeçalho da página, o calendário, as tarefas do dia, o resumo e o planejador semanal.
